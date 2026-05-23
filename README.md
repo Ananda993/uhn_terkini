@@ -66,9 +66,6 @@ Kontribusi terbuka untuk pengembangan dan penambahan fitur baru. Silakan lakukan
 - gede Adi Pramana
 - I Made Hanggara Kesuma Dewa
 
-## Lisensi
-
-Repositori ini menggunakan lisensi [MIT](LICENSE) (atau ganti sesuai kebutuhan Anda).
 
 ## Kontak & Informasi
 
