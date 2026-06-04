@@ -1,0 +1,126 @@
+================================================
+PROGRES PENGEMBANGAN - UHN TERKINI
+Portal Informasi Kampus Terpusat
+Tanggal: 27 April 2026
+================================================
+
+FASE 1: LANDING PAGE
+Status: SELESAI ✅
+
+================================================
+FILE YANG DIBUAT:
+================================================
+
+1. config/database.php
+   - Konfigurasi koneksi database MySQL
+   - Auto-create database "uhn_terkini"
+   - Auto-create tabel: users, categories, informasi, bookmarks
+   - Seeder default: 6 kategori, 1 admin, 8 sample informasi
+   - Helper function sanitize()
+   - Session start
+
+2. includes/header.php
+   - DOCTYPE HTML5, meta tags SEO
+   - Google Fonts: Inter & Space Grotesk
+   - Font Awesome Icons CDN
+   - Tailwind CSS CDN + custom config (colors, fonts)
+   - Custom stylesheet link
+
+3. includes/navbar.php
+   - Fixed navbar dengan scroll effect (glassmorphism)
+   - Logo UHN + brand text
+   - Desktop menu: Beranda, Trending, Kategori, Tentang
+   - Search bar toggle (hidden by default, ESC to close)
+   - Auth buttons: Masuk & Daftar
+   - Mobile responsive menu (hamburger toggle)
+
+4. includes/footer.php
+   - Brand info + deskripsi
+   - Social media links (Instagram, Twitter, YouTube, TikTok)
+   - Navigasi footer
+   - Kontak info (alamat, email, telepon)
+   - Copyright footer
+   - JS main script link
+
+5. assets/css/style.css
+   - Custom scrollbar dark theme
+   - Navbar scroll effect (.nav-scrolled)
+   - Keyframe animations: float, pulse-glow, slide-up, slide-down, fade-in, scale-in, gradient-shift
+   - Animation classes: anim-slide-up, anim-slide-down, anim-fade-in, anim-scale-in
+   - Glass card effect (.glass-card) dengan hover
+   - Trending card effect (.trending-card) dengan hover glow
+   - Category chip styling
+   - Rank badge styling (gold, silver, bronze)
+   - Trend line mini chart
+   - Scroll reveal animation (.reveal)
+   - Grid pattern background
+   - Gradient text animation
+   - Loading skeleton animation
+   - Line clamp utilities
+
+6. assets/js/main.js
+   - Navbar scroll effect (add/remove class on scroll)
+   - Mobile menu toggle
+   - Search bar toggle + ESC key listener
+   - Intersection Observer for reveal animations
+   - Animated counter (count up effect)
+   - Trend bars animation
+   - Smooth scroll for anchor links
+   - Parallax effect on hero gradient orbs (mouse move)
+
+7. index.php (Landing Page)
+   - HERO SECTION: Gradient orbs background, badge "Live Trending", 
+     title "Apa yang sedang Trending di UHN?", subtitle, CTA buttons, 
+     mini stats counter, scroll indicator
+   - TRENDING SECTION: Top 8 informasi by views, rank badges (gold/silver/bronze),
+     category chips, deadline warning, mini trend chart, view count
+   - KATEGORI SECTION: 6 kategori cards dengan icon, count info
+   - URGENSI SECTION: 4 deadline-approaching cards, countdown hari tersisa,
+     color-coded urgency (red/orange/yellow/green)
+   - STATS SECTION: 4 animated counters (Informasi, Users, Views, Kategori)
+   - CTA SECTION: Call-to-action daftar akun
+
+================================================
+DATABASE:
+================================================
+
+Nama Database: uhn_terkini
+Tabel:
+  - users (id, nama, email, password, role, foto_profil, timestamps)
+  - categories (id, nama, slug, icon, warna, created_at)
+  - informasi (id, judul, slug, deskripsi, gambar, deadline, category_id, user_id, status, views, timestamps)
+  - bookmarks (id, user_id, informasi_id, created_at)
+
+Default Admin:
+  - Email: admin@uhn.ac.id
+  - Password: admin123
+
+Default Kategori:
+  - Beasiswa, Lomba, Seminar, Kegiatan Kampus, Akademik, Organisasi
+
+================================================
+DESIGN SYSTEM:
+================================================
+
+Theme: Dark Mode (Google Trends inspired)
+Primary Color: Indigo (#6366f1)
+Accent Color: Sky Blue (#0ea5e9)
+Background: #020617 (near black)
+Fonts: Inter (body), Space Grotesk (headings)
+Effects: Glassmorphism, gradient orbs, parallax, micro-animations
+
+================================================
+DOMAIN: uhn-terkini.test (Laragon)
+================================================
+
+SELANJUTNYA YANG PERLU DIBUAT:
+- Halaman Auth (Login & Register)
+- Halaman Admin Dashboard
+- Halaman Trending
+- Halaman Kategori
+- Halaman Detail Informasi
+- Halaman Tentang
+- Sistem CRUD Informasi (Publisher)
+- Sistem Validasi (Admin)
+- Sistem Bookmark (Mahasiswa)
+- Pencarian & Filter

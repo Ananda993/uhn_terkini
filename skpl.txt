@@ -1,0 +1,157 @@
+# SPESIFIKASI KEBUTUHAN PERANGKAT LUNAK (SKPL)
+
+## Sistem: UHN Terkini – Portal Informasi Terpusat Berbasis Popularitas dan Urgensi
+
+---
+
+## 1. Pendahuluan
+
+### 1.1 Tujuan
+
+Dokumen ini bertujuan untuk mendefinisikan kebutuhan perangkat lunak dari sistem "UHN Terkini" sebagai portal informasi kampus terpusat yang menyajikan informasi berdasarkan tingkat popularitas dan urgensi.
+
+### 1.2 Ruang Lingkup
+
+Sistem ini digunakan oleh civitas akademika untuk mengakses informasi seperti beasiswa, lomba, seminar, dan kegiatan kampus lainnya secara terpusat, tervalidasi, dan terprioritaskan.
+
+### 1.3 Definisi, Akronim, dan Singkatan
+
+* SKPL: Spesifikasi Kebutuhan Perangkat Lunak
+* RBAC: Role-Based Access Control
+* Admin: Pengelola sistem
+* Publisher: Pengunggah konten (organisasi/humas)
+* Mahasiswa: Pengguna akhir sistem
+
+---
+
+## 2. Deskripsi Umum
+
+### 2.1 Perspektif Produk
+
+Sistem merupakan aplikasi web berbasis PHP, HTML, CSS, JavaScript, dan Tailwind CSS yang berjalan pada server lokal maupun hosting.
+
+### 2.2 Fungsi Produk
+
+* Menyediakan informasi kampus secara terpusat
+* Menyaring informasi berdasarkan popularitas dan urgensi
+* Memungkinkan pengguna menyimpan informasi penting
+* Menyediakan sistem validasi konten oleh admin
+
+### 2.3 Karakteristik Pengguna
+
+* Admin: Mengelola seluruh sistem
+* Publisher: Mengunggah dan mengelola konten
+* Mahasiswa: Mengakses dan menyimpan informasi
+
+### 2.4 Batasan
+
+* Tidak menggunakan framework backend
+* Menggunakan MySQL sebagai database
+* Berbasis web (tidak mobile app)
+
+---
+
+## 3. Kebutuhan Fungsional
+
+### 3.1 Autentikasi Pengguna
+
+* Sistem menyediakan fitur registrasi
+* Sistem menyediakan fitur login dan logout
+* Sistem membedakan akses berdasarkan role pengguna
+
+### 3.2 Manajemen Pengguna (Admin)
+
+* Admin dapat menambah, mengedit, dan menghapus user
+* Admin dapat menentukan role user
+
+### 3.3 Manajemen Kategori
+
+* Admin dapat menambah, mengedit, dan menghapus kategori
+
+### 3.4 Manajemen Informasi
+
+* Publisher dapat membuat, mengedit, dan menghapus informasi
+* Informasi memiliki atribut: judul, deskripsi, gambar, deadline, kategori
+* Informasi memiliki status (pending, approved, rejected)
+* Admin dapat memvalidasi informasi
+
+### 3.5 Pencarian dan Filter
+
+* Mahasiswa dapat mencari informasi berdasarkan kata kunci
+* Mahasiswa dapat memfilter berdasarkan kategori
+
+### 3.6 Bookmark
+
+* Mahasiswa dapat menyimpan informasi
+* Mahasiswa dapat melihat daftar bookmark
+
+### 3.7 Sistem Popularitas
+
+* Sistem mencatat jumlah views
+* Informasi dengan views tinggi memiliki prioritas lebih tinggi
+
+### 3.8 Sistem Urgensi
+
+* Sistem menghitung sisa waktu menuju deadline
+* Informasi dengan deadline dekat diprioritaskan
+
+### 3.9 Dashboard
+
+* Sistem menampilkan informasi prioritas di halaman utama
+* Admin dapat melihat statistik sistem
+
+---
+
+## 4. Kebutuhan Non-Fungsional
+
+### 4.1 Performa
+
+* Sistem harus mampu menangani banyak data informasi
+* Waktu respon halaman maksimal 3 detik
+
+### 4.2 Keamanan
+
+* Password disimpan dalam bentuk hash
+* Validasi input untuk mencegah SQL Injection
+
+### 4.3 Usability
+
+* Antarmuka responsif (mobile-friendly)
+* Navigasi sederhana dan mudah digunakan
+
+### 4.4 Reliabilitas
+
+* Sistem dapat berjalan 24/7 dengan downtime minimal
+
+---
+
+## 5. Model Data (Ringkasan)
+
+### Entitas:
+
+* Users
+* Categories
+* Information
+* Bookmarks
+
+### Relasi:
+
+* User (Publisher) membuat banyak Information
+* Category memiliki banyak Information
+* User menyimpan banyak Information melalui Bookmark
+
+---
+
+## 6. Alur Sistem
+
+1. Publisher mengunggah informasi
+2. Admin melakukan validasi
+3. Informasi ditampilkan di halaman utama
+4. Mahasiswa mengakses dan berinteraksi
+5. Sistem memperbarui popularitas dan prioritas informasi
+
+---
+
+## 7. Penutup
+
+Dokumen SKPL ini menjadi acuan dalam pengembangan sistem "UHN Terkini" agar sesuai dengan kebutuhan pengguna dan tujuan utama sistem sebagai pusat informasi kampus yang efektif dan terstruktur.

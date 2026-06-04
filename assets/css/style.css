@@ -1,0 +1,444 @@
+/* =========================================
+   UHN Terkini - Main Stylesheet
+   Portal Informasi Kampus Terpusat
+   ========================================= */
+
+/* --- Root Variables --- */
+:root {
+    --primary: #6366f1;
+    --primary-light: #818cf8;
+    --accent: #0ea5e9;
+    --dark-900: #0f172a;
+    --dark-950: #020617;
+    --glow-primary: 0 0 30px rgba(99,102,241,0.3);
+    --glow-accent: 0 0 30px rgba(14,165,233,0.3);
+    --app-bg: #f8fafc;
+    --app-text: #0f172a;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --app-bg: #f8fafc;
+        --app-text: #0f172a;
+    }
+}
+
+html.theme-light {
+    --app-bg: #f8fafc;
+    --app-text: #0f172a;
+}
+
+html.theme-dark {
+    --app-bg: #f8fafc;
+    --app-text: #0f172a;
+}
+
+html.theme-light body {
+    background-color: var(--app-bg) !important;
+    color: var(--app-text) !important;
+}
+
+html.theme-light .text-dark-100 {
+    color: var(--app-text) !important;
+}
+
+html.theme-light .text-dark-200 { color: #334155 !important; }
+html.theme-light .text-dark-300 { color: #475569 !important; }
+html.theme-light .text-dark-400 { color: #64748b !important; }
+html.theme-light .text-dark-500 { color: #94a3b8 !important; }
+
+html.theme-light .bg-dark-950 { background-color: #f8fafc !important; }
+html.theme-light .bg-dark-900 { background-color: #f1f5f9 !important; }
+html.theme-light .bg-dark-800 { background-color: #e2e8f0 !important; }
+
+html.theme-light .bg-white\/5 { background-color: rgba(15,23,42,0.04) !important; }
+html.theme-light .bg-white\/10 { background-color: rgba(15,23,42,0.08) !important; }
+html.theme-light .border-white\/10 { border-color: rgba(15,23,42,0.12) !important; }
+html.theme-light .border-white\/5 { border-color: rgba(15,23,42,0.08) !important; }
+
+html.theme-light .nav-scrolled {
+    background: rgba(248,250,252,0.92) !important;
+    border-bottom: 1px solid rgba(15,23,42,0.08);
+    box-shadow: 0 4px 30px rgba(15,23,42,0.08);
+}
+
+html.theme-light .glass-card,
+html.theme-light .trending-card,
+html.theme-light .auth-card {
+    background: #ffffff;
+    border-color: rgba(15,23,42,0.08);
+    box-shadow: 0 18px 40px rgba(15,23,42,0.08);
+}
+
+html.theme-light .bg-dark-900\/70,
+html.theme-light .bg-dark-900\/95 {
+    background-color: rgba(241,245,249,0.95) !important;
+}
+
+html.theme-light .bg-dark-800\/70 {
+    background-color: rgba(226,232,240,0.85) !important;
+}
+
+html.theme-light .trending-card:hover,
+html.theme-light .glass-card:hover {
+    box-shadow: 0 22px 50px rgba(15,23,42,0.12);
+}
+
+html.theme-light .grid-pattern {
+    background-image:
+        linear-gradient(rgba(15,23,42,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,23,42,0.06) 1px, transparent 1px);
+}
+
+html.theme-light .nav-link {
+    color: #334155;
+}
+
+html.theme-light .nav-link:hover {
+    color: #0f172a;
+    background: rgba(15,23,42,0.06);
+}
+
+html.theme-light .nav-link.active {
+    color: #2563eb;
+    background: rgba(37,99,235,0.08);
+}
+
+html.theme-light .hover\:text-dark-100:hover {
+    color: var(--app-text) !important;
+}
+
+html.theme-light .hero-cta-primary {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+html.theme-light .hero-cta-secondary {
+    color: #1d4ed8;
+    border-color: rgba(29,78,216,0.25);
+    background: rgba(29,78,216,0.06);
+}
+
+html.theme-light .hero-cta-secondary:hover {
+    color: #1e3a8a;
+    background: rgba(29,78,216,0.12);
+}
+
+/* --- Smooth Scroll & Selection --- */
+html {
+    scroll-behavior: smooth;
+}
+
+::selection {
+    background: rgba(99,102,241,0.3);
+    color: #e2e8f0;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f8fafc;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}
+
+/* --- Navbar --- */
+.nav-scrolled {
+    background: rgba(15, 23, 42, 0.85) !important;
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.nav-link {
+    color: #94a3b8;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #e2e8f0;
+    background: rgba(255,255,255,0.05);
+}
+
+.nav-link.active {
+    color: #818cf8;
+}
+
+/* --- Hero Gradient Orb Animations --- */
+@keyframes float {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    25% { transform: translate(30px, -30px) scale(1.05); }
+    50% { transform: translate(-20px, 20px) scale(0.95); }
+    75% { transform: translate(10px, -10px) scale(1.02); }
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+@keyframes slide-up {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-down {
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes scale-in {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes gradient-shift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- Animation Classes --- */
+.animate-float {
+    animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delay {
+    animation: float 10s ease-in-out infinite 2s;
+}
+
+.animate-pulse-glow {
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.anim-slide-up {
+    opacity: 0;
+    animation: slide-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-slide-down {
+    opacity: 0;
+    animation: slide-down 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.anim-fade-in {
+    opacity: 0;
+    animation: fade-in 1s ease forwards;
+}
+
+.anim-scale-in {
+    opacity: 0;
+    animation: scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-gradient-shift {
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease infinite;
+}
+
+/* --- Glass Card --- */
+.glass-card {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(255,255,255,0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+
+/* --- Trending Card --- */
+.trending-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.trending-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-light), var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.trending-card:hover::before {
+    opacity: 1;
+}
+
+.trending-card:hover {
+    background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+    border-color: rgba(99,102,241,0.2);
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 30px rgba(99,102,241,0.1);
+}
+
+/* --- Category Chip --- */
+.category-chip {
+    padding: 0.375rem 0.875rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.3s;
+    border: 1px solid rgba(255,255,255,0.1);
+    cursor: pointer;
+}
+
+.category-chip:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* --- Rank Badge --- */
+.rank-badge {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.875rem;
+    font-family: 'Space Grotesk', sans-serif;
+    flex-shrink: 0;
+}
+
+.rank-badge.gold {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: #e2e8f0;
+    box-shadow: 0 4px 15px rgba(245,158,11,0.3);
+}
+
+.rank-badge.silver {
+    background: linear-gradient(135deg, #94a3b8, #64748b);
+    color: #e2e8f0;
+    box-shadow: 0 4px 15px rgba(148,163,184,0.2);
+}
+
+.rank-badge.bronze {
+    background: linear-gradient(135deg, #d97706, #92400e);
+    color: #e2e8f0;
+    box-shadow: 0 4px 15px rgba(217,119,6,0.2);
+}
+
+.rank-badge.default {
+    background: rgba(255,255,255,0.05);
+    color: #64748b;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* --- Trend Line (mini chart) --- */
+.trend-line {
+    position: relative;
+    height: 40px;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.trend-bar {
+    flex: 1;
+    border-radius: 2px 2px 0 0;
+    transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    min-height: 4px;
+}
+
+/* --- Stat Counter Animation --- */
+.stat-number {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* --- Intersection Observer Reveal --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Grid Pattern Background --- */
+.grid-pattern {
+    background-image: 
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+
+/* --- Gradient Text --- */
+.gradient-text {
+    background: linear-gradient(135deg, #818cf8, #38bdf8, #818cf8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-shift 4s linear infinite;
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2.25rem;
+    }
+}
+
+/* --- Loading Skeleton --- */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.skeleton {
+    background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.03) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+    border-radius: 0.5rem;
+}
+
+/* --- Line Clamp --- */
+.line-clamp-1 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+}
+
+.line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+}
